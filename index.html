@@ -18,15 +18,30 @@
     body {
       min-height: 100vh;
       margin: 0;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
+      display: flex;
+      flex-direction: column;
       color: var(--ink);
       background:
         radial-gradient(ellipse at 18% 18%, #5240a64d, transparent 35%),
         radial-gradient(ellipse at 82% 78%, #0f9eaa38, transparent 34%),
         #101226;
     }
+
+    nav {
+      position: relative;
+      z-index: 1;
+      width: min(1100px, 90vw);
+      margin: 1.5rem auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand { color: var(--ink); text-decoration: none; font-weight: 750; letter-spacing: -.04em; }
+    .links { display: flex; gap: .4rem; }
+    .links a { padding: .65rem .9rem; border-radius: 10px; color: var(--muted); text-decoration: none; font-size: .9rem; transition: color .2s, background .2s; }
+    .links a:hover, .links a[aria-current="page"] { color: var(--ink); background: #ffffff12; }
+    main { margin: auto; }
+    @media (max-width: 480px) { nav { margin-top: 1rem; } .links { gap: 0; } .links a { padding: .6rem .55rem; font-size: .82rem; } }
 
     .glow {
       position: fixed;
@@ -133,6 +148,10 @@
 </head>
 <body>
   <div class="glow" aria-hidden="true"></div>
+  <nav aria-label="Main navigation">
+    <a class="brand" href="index.html">✦ Hello World</a>
+    <div class="links"><a href="index.html" aria-current="page">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+  </nav>
   <main>
     <p class="eyebrow"><span class="dot" aria-hidden="true"></span> A little something to start</p>
     <h1>Hello,<span>World!</span></h1>
